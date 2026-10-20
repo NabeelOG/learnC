@@ -1,21 +1,19 @@
-#include <stdio.h>
+#include "stdio.h"
 
 int main(void) {
-    // fprintf(stdout, "Hello World");
-
     FILE *fp;
-    // int c;
-    char s[1024];
-    int linecount = 0;
 
-    fp = fopen("quote.txt", "r");
+    fp = fopen("hello.txt", "r");
 
+    int c;
     // int c = fgetc(fp);
+
     // printf("%c\n", c);
 
-    while (fgets(s, sizeof s, fp) != NULL) {
-        printf("%d: %s", ++linecount, s);
+    while ((c = fgetc(fp)) != EOF) {
+        printf("%c", c);
     }
+    printf("\n");
 
     fclose(fp);
 }
